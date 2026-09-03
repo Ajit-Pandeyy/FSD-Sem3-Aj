@@ -1,0 +1,14 @@
+$kind: http-request
+name: New Request
+url: http://0.0.0.0:3000/create
+method: GET
+body:
+  type: json
+  content: |-
+    {
+        "id":101,
+        "name":"chips",
+        "email":"ami@gmail.com"
+
+    }
+order: 1788431435724
