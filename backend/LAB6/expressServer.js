@@ -170,7 +170,34 @@ app.post("/registered", (req, res) => {
   }
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
+
+app.use(express.static("public"));
+
+app.post("/login", (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password are required" });
+    }
+
+    const allUsers = [...userData, ...registeredData];
+    const foundUser = allUsers.find((u) => u.email.toLowerCase() === email.toLowerCase());
+
+    if (!foundUser) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    res.status(200).json({
+      msg: `Welcome back, ${foundUser.name}`,
+      user: foundUser,
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error", details: error.message });
+  }
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
