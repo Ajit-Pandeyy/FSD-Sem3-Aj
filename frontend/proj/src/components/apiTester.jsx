@@ -178,7 +178,7 @@ export default function ApiTester() {
       {/* Left Sidebar */}
       <div style={styles.sidebar}>
         <div style={styles.sidebarHeader}>
-          <span style={{ fontWeight: 600, fontSize: '15px' }}>⚡ POSTMAN CLONE</span>
+          <span style={{ fontWeight: 600, fontSize: '15px' }}>POSTMAN CLONE</span>
         </div>
 
         <div style={styles.sectionTitle}>COLLECTIONS / PRESETS</div>
