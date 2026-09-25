@@ -32,6 +32,7 @@ const PRESET_ENDPOINTS = [
     url: 'http://localhost:3000/login',
     body: JSON.stringify({ email: "avs@gmail.com", password: "password123" }, null, 2)
   },
+  { name: 'Clear All Users (Master)', method: 'DELETE', url: 'http://localhost:3000/clear' },
 ];
 
 export default function ApiTester() {
@@ -178,7 +179,7 @@ export default function ApiTester() {
       {/* Left Sidebar */}
       <div style={styles.sidebar}>
         <div style={styles.sidebarHeader}>
-          <span style={{ fontWeight: 600, fontSize: '15px' }}>POSTMAN CLONE</span>
+          <span style={{ fontWeight: 600, fontSize: '15px' }}> POSTMAN CLONE</span>
         </div>
 
         <div style={styles.sectionTitle}>COLLECTIONS / PRESETS</div>
@@ -395,8 +396,7 @@ export default function ApiTester() {
 
           {!response && !loading && (
             <div style={styles.emptyResponse}>
-              <div style={{ fontSize: '32px', marginBottom: '10px' }}></div>
-              <div>Enter URL and click <strong>Send</strong> to get a response</div>
+              <div style={{ fontSize: '17px', marginBottom: '10px' }}>Enter URL and click <strong>Send</strong> to get a response</div>
             </div>
           )}
 
@@ -450,11 +450,10 @@ export default function ApiTester() {
   );
 }
 
-// Inline styles for complete self-contained Postman layout
 const styles = {
   container: {
     display: 'flex',
-    height: '100vh',
+    height: 'calc(100vh - 50px)',
     width: '100vw',
     backgroundColor: '#1e1e1e',
     color: '#f0f0f0',

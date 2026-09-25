@@ -132,6 +132,18 @@ app.delete("/user/:id", (req, res) => {
   }
 });
 
+app.delete("/clear", (req, res) => {
+  try {
+    userData = [];
+    registeredData = [];
+    res.status(200).json({ msg: "All user entries cleared successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", details: error.message });
+  }
+});
+
 app.get("/registered", (req, res) => {
   try {
     res
