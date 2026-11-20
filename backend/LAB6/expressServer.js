@@ -2,8 +2,10 @@ import express from "express";
 import os from "os";
 import dotenv from "dotenv";
 import cors from "cors";
+import connectDB from "./db";
 
 dotenv.config();
+connectDB();
 
 const app = express();
 app.use(cors());
