@@ -33,6 +33,19 @@ const PRESET_ENDPOINTS = [
     body: JSON.stringify({ email: "avs@gmail.com", password: "password123" }, null, 2)
   },
   { name: 'Clear All Users (Master)', method: 'DELETE', url: 'http://localhost:3000/clear' },
+  { name: 'HRMS: Get Employees', method: 'GET', url: 'http://localhost:5000/employees' },
+  { 
+    name: 'HRMS: Add Employee', 
+    method: 'POST', 
+    url: 'http://localhost:5000/employees',
+    body: JSON.stringify({
+      employeeId: "EMP101",
+      name: "Ajit Pandey",
+      dateOfJoining: "2024-01-15",
+      dept: "IT",
+      salary: 85000
+    }, null, 2)
+  },
 ];
 
 export default function ApiTester() {
